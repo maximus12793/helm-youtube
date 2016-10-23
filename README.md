@@ -5,20 +5,20 @@ Youtube-this is a simple plugin to quickly search and watch youtube from within 
 
 ## Installation 
 1. Obtain new google API key 
-![alt tag](http://imgur.com/1VkqRx7)
+![Screenshot](http://imgur.com/1VkqRx7)
 
 2. Modify file in /youtube-this.el
     Insert key from step 1 here.
 
 
-    ``` lisp
+    ``` el
     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
     ```
 3. Add to .emacs
     bind to key of choice
 
  
-    ``` lisp
+    ``` el
     (autoload 'youtube-this "youtube-this" nil t)
     (global-set-key (kbd "C-c y") 'youtube-this)
     ```
