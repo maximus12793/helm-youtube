@@ -5,6 +5,7 @@ Youtube-this is a simple plugin to quickly search and watch youtube from within 
 
 ## Installation 
 1. Obtain new google API key 
+![alt tag](http://imgur.com/a/6Oi1J)
 
 2. Modify file in /youtube-this.el
     Insert key from step 1 here.
