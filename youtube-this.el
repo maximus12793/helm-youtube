@@ -78,6 +78,7 @@
 
 ;;handle the json parsing 
 (defun youtube-this-wrapper (*qqJson*)
+  (defvar *results*)
   (setq *qqJson* (cdr (car *qqJson*)))
   (loop for x being the elements of *qqJson*
 	do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
