@@ -2,7 +2,7 @@
 
 #Youtube-this
 Youtube-this is a simple plugin to quickly search and watch youtube from within emacs. 
-![Alt Text](https://github.com/maximus12793/youtube-this.el/blob/master/dem2.gif)
+![Alt Text](https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif)
 
 ## Installation 
 1. Obtain new google API key 
