@@ -1,11 +1,11 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
 #Youtube-this
-Youtube-this is a simple plugin to quickly search and watch youtube from within emacs. 
-
 <p align="center">
   <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif">
 </p>
+
+Youtube-this is a simple plugin to quickly search and watch youtube from within emacs. 
 
 ## Installation 
 1. Obtain new google API key 
