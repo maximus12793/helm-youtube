@@ -3,9 +3,9 @@
 ;; Copyright (C) 2016 Maximilian Roquemore
 
 ;; Author: Maximilian Roquemore <maximus12793@gmail.com>
-;; URL: https://github.com/maximus12793/youtube-this.el
+;; URL: https://github.com/maximus12793/youtube-this
 ;; Created: 2016-Oct-19 01:58:25 
-;; Version 1.0
+;; Version: {{VERSION}}
 ;; Keywords: youtube
 
 ;;; MIT License
@@ -29,6 +29,7 @@
 ;; OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ;; WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+;;; Code:
 
 (defun youtube-this()
   (setq *qqJson* "")
@@ -84,7 +85,6 @@
 (provide 'youtube-this)
 
 ;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
 ;; End:
 
 ;;; youtube-this.el ends here
