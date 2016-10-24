@@ -36,6 +36,8 @@
 
 ;;; Code:
 
+
+;;;###autoload
 (defun youtube-this()
   (setq *qqJson* "")
   (require 'helm-config)
