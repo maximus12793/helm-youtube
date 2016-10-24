@@ -44,7 +44,7 @@
 	     ("q" . ,(read-string "Search YouTube: "))
 	     ("type" . "video")
 	     ("maxResults" . "20")
-	     ("key" . "AIzaSyDERieLMZ1cbNeiOILwCYUhhevtnRkQvdA"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
+	     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
    :parser 'json-read
    :success (function*
 	     (lambda (&key data &allow-other-keys)
