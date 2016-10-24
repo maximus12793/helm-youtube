@@ -79,17 +79,18 @@
 ;;handle the json parsing 
 (defun youtube-this-wrapper (*qqJson*)
   (defvar *results*)
+  (defvar helm-sources)
   (setq *qqJson* (cdr (car *qqJson*)))
   (loop for x being the elements of *qqJson*
 	do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
-  (setq some-helm-source
+  (setq helm-sources
 	`((name . "Youtube Search Results")
 	  (candidates . ,(mapcar 'car *results*))
 	  (action . (lambda (candidate)
 		      ;; (message-box "%s" (candidate))
 		      (youtube-this-playvideo (cdr (assoc candidate *results*)))
 		      ))))
-  (helm :sources '(some-helm-source)))
+  (helm :sources '(helm-sources)))
 
 (provide 'youtube-this)
 
