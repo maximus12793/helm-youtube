@@ -2,6 +2,8 @@
 
 #Youtube-this
 Youtube-this is a simple plugin to quickly search and watch youtube from within emacs. 
+
+
 ![Alt Text](https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif)
 
 ## Installation 
@@ -16,7 +18,7 @@ Youtube-this is a simple plugin to quickly search and watch youtube from within 
     ``` el
     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
     ```
-3. Add to .emacs and bind to key of choice
+3. Set browse-url-generic and add to .emacs
 
  
     ``` el
