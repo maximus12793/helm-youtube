@@ -20,7 +20,12 @@ Youtube-this is a simple plugin to quickly search and watch youtube from within 
 
  
     ``` el
+    ;;start youtube-this.el
     (autoload 'youtube-this "youtube-this" nil t)
     (global-set-key (kbd "C-c y") 'youtube-this)
+
+    ;;set default browser for you will use to play videos/default generic
+    (setq browse-url-browser-function 'browse-url-generic)
+    (setq browse-url-generic-program "google-chrome-open-url")
     ```
 4. Enjoy :) 
