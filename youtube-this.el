@@ -3,7 +3,8 @@
 ;; Copyright (C) 2016 Maximilian Roquemore
 
 ;; Author: Maximilian Roquemore <maximus12793@gmail.com>
-;; Version: {{VERSION}}
+;; Version: 1.0
+;; Package-Requires: ((request " 0.2.0") (helm "2.3.1"))
 ;; URL: https://github.com/maximus12793/youtube-this
 ;; Created: 2016-Oct-19 01:58:25 
 ;; Keywords: youtube, multimedia
@@ -37,6 +38,8 @@
 ;;; Code:
 
 
+(eval-when-compile (require 'cl-lib))
+
 ;;;###autoload
 (defun youtube-this()
   (setq *qqJson* "")
@@ -56,36 +59,36 @@
    :parser 'json-read
    :success (function*
 	     (lambda (&key data &allow-other-keys)
-	       (wrapper data)));;function
+	       (youtube-this-wrapper data)));;function
    :status-code '((400 . (lambda (&rest _) (message "Got 400.")))
 		  ;; (200 . (lambda (&rest _) (message "Got 200.")))
 		  (418 . (lambda (&rest _) (message "Got 418."))))
    :complete (message "searching...")))
 
 
-(defun tree-assoc (key tree)
+(defun youtube-this-tree-assoc (key tree)
   (when (consp tree)
     (destructuring-bind (x . y)  tree
       (if (eql x key) tree
-	(or (tree-assoc key x) (tree-assoc key y))))))
+	(or (youtube-this-tree-assoc key x) (youtube-this-tree-assoc key y))))))
 
-(defun playvideo (videoId)
+(defun youtube-this-playvideo (videoId)
   (browse-url
    (concat "http://www.youtube.com/watch?v=" videoId)))
 
 
 ;;handle the json parsing 
-(defun wrapper (*qqJson*)
+(defun youtube-this-wrapper (*qqJson*)
   (setq *qqJson* (cdr (car *qqJson*)))
   (setq *results* '())
   (loop for x being the elements of *qqJson*
-	do (push (cons (cdr (tree-assoc 'title x)) (cdr (tree-assoc 'videoId x))) *results*))
+	do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
   (setq some-helm-source
 	`((name . "Youtube Search Results")
 	  (candidates . ,(mapcar 'car *results*))
 	  (action . (lambda (candidate)
 		      ;; (message-box "%s" (candidate))
-		      (playvideo (cdr (assoc candidate *results*)))
+		      (youtube-this-playvideo (cdr (assoc candidate *results*)))
 		      ))))
   (helm :sources '(some-helm-source)))
 
