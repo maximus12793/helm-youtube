@@ -3,10 +3,15 @@
 ;; Copyright (C) 2016 Maximilian Roquemore
 
 ;; Author: Maximilian Roquemore <maximus12793@gmail.com>
+;; Version: {{VERSION}}
 ;; URL: https://github.com/maximus12793/youtube-this
 ;; Created: 2016-Oct-19 01:58:25 
-;; Version: {{VERSION}}
-;; Keywords: youtube
+;; Keywords: youtube, multimedia
+
+;;; Commentary:
+
+;; This package provides an interactive prompt to search
+;; youtube as you code :)
 
 ;;; MIT License
 ;;
