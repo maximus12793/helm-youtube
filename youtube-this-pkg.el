@@ -1,3 +1,4 @@
-(youtube-this :repo "maximus12793/youtube-this.el"
-              :fetcher github
-              :files ("youtube-this.el"))
+(define-package
+  "youtube-this"
+  "{{VERSION}}"
+  "a simple plugin to quickly search and watch youtube from within emacs")
