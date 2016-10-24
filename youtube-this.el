@@ -42,7 +42,6 @@
 
 ;;;###autoload
 (defun youtube-this()
-  (setq *qqJson* "")
   (require 'helm-config)
   (require 'helm)
   (helm-autoresize-mode 1)
@@ -80,7 +79,6 @@
 ;;handle the json parsing 
 (defun youtube-this-wrapper (*qqJson*)
   (setq *qqJson* (cdr (car *qqJson*)))
-  (setq *results* '())
   (loop for x being the elements of *qqJson*
 	do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
   (setq some-helm-source
