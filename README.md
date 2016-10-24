@@ -5,7 +5,7 @@ Youtube-this is a simple plugin to quickly search and watch youtube from within 
 
 ## Installation 
 1. Obtain new google API key 
-
+[link text](https://console.developers.google.com/ "Google Developer Console")
 
 ![Screenshot](https://github.com/maximus12793/youtube-this.el/blob/master/api.png)
 
