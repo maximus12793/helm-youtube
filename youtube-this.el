@@ -1,4 +1,4 @@
-;;; youtube.el --- Use emacs to watch youtube videos
+;;; youtube-this.el --- Use emacs to watch youtube videos
 
 ;; Copyright (C) 2016 Maximilian Roquemore
 
@@ -82,5 +82,9 @@
   (helm :sources '(some-helm-source)))
 
 (provide 'youtube-this)
+
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
 
 ;;; youtube-this.el ends here
