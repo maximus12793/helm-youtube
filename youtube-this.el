@@ -54,7 +54,7 @@
 	     ("maxResults" . "20")
 	     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
    :parser 'json-read
-   :success (function*
+   :success (cl-function
 	     (lambda (&key data &allow-other-keys)
 	       (youtube-this-wrapper data)));;function
    :status-code '((400 . (lambda (&rest _) (message "Got 400.")))
@@ -65,7 +65,7 @@
 
 (defun youtube-this-tree-assoc (key tree)
   (when (consp tree)
-    (destructuring-bind (x . y)  tree
+    (cl-destructuring-bind (x . y)  tree
       (if (eql x key) tree
 	(or (youtube-this-tree-assoc key x) (youtube-this-tree-assoc key y))))))
 
@@ -79,8 +79,8 @@
   (defvar *results*)
   (defvar helm-sources)
   (setq *qqJson* (cdr (car *qqJson*)))
-  (loop for x being the elements of *qqJson*
-	do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
+  (cl-loop for x being the elements of *qqJson*
+	   do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
   (setq helm-sources
 	`((name . "Youtube Search Results")
 	  (candidates . ,(mapcar 'car *results*))
