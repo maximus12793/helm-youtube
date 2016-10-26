@@ -1,25 +1,27 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
-#Youtube-this
+#YouTube-this
 <p align="center">
   <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif">
 </p>
 
-Youtube-this is a simple plugin to query youtube and open videos in an external browser. 
+YouTube-this is a simple plugin to query YouTube via emacs and play videos in your browser. 
 
 ## Installation 
-1. Obtain new google API key 
+1. Package Install youtube-this
+
+2. Obtain new google API key 
     [here](https://console.developers.google.com/ "Google Developer Console")
 
     ![Screenshot](https://github.com/maximus12793/youtube-this.el/blob/master/api.png)
 
-2. Modify file in /youtube-this.el, Insert key from step 1 here
+3. Modify file in /youtube-this.el, Insert key from step 1 here
 
 
     ``` el
     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
     ```
-3. Set browse-url-generic and add to .emacs
+4. Set browse-url-generic and add to .emacs
 
  
     ``` el
@@ -31,4 +33,4 @@ Youtube-this is a simple plugin to query youtube and open videos in an external 
     (setq browse-url-browser-function 'browse-url-generic)
     (setq browse-url-generic-program "google-chrome-open-url")
     ```
-4. Enjoy :) 
+5. Enjoy :) 

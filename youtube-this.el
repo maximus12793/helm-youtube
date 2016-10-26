@@ -1,4 +1,4 @@
-;;; youtube-this.el --- Query youtube via emacs and play videos in a browser of your choice
+;;; youtube-this.el --- Query YouTube in emacs and play videos in your browser
 
 ;; Copyright (C) 2016 Maximilian Roquemore
 
