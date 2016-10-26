@@ -42,12 +42,10 @@
 
 ;;;###autoload
 (defun youtube-this()
-  (require 'helm-config)
+  (interactive)
   (require 'helm)
-  (helm-autoresize-mode 1)
   (require 'request)
   (require 'json)
-  (interactive)
   (request
    "https://www.googleapis.com/youtube/v3/search"
    :params `(("part" . "snippet")
