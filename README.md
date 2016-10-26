@@ -8,7 +8,7 @@
 YouTube-this is a simple plugin to query YouTube via emacs and play videos in your browser. 
 
 ## Installation 
-1. Package Install youtube-this
+1. M-x package-install: youtube-this
 
 2. Obtain new google API key 
     [here](https://console.developers.google.com/ "Google Developer Console")
