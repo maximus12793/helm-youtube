@@ -5,7 +5,7 @@
   <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif">
 </p>
 
-Youtube-this is a simple plugin to quickly search and watch youtube from within emacs. 
+Youtube-this is a simple plugin to query youtube and open videos in an external browser. 
 
 ## Installation 
 1. Obtain new google API key 
