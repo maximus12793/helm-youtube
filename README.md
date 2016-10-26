@@ -2,7 +2,7 @@
 
 #YouTube-this
 <p align="center">
-  <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo_2.gif">
+  <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo.gif">
 </p>
 
 YouTube-this is a simple plugin to query YouTube via emacs and play videos in your browser. 
