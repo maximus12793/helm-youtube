@@ -1,4 +1,4 @@
-;;; youtube-this.el --- Query YouTube in emacs and play videos in your browser
+;;; youtube-this.el --- Query YouTube and play videos in your browser
 
 ;; Copyright (C) 2016 Maximilian Roquemore
 
@@ -30,7 +30,7 @@
 ;; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 ;; EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 ;; MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-;; NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+;; NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 ;; LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 ;; OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ;; WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -38,7 +38,7 @@
 ;;; Code:
 
 
-(eval-when-compile (require 'cl-lib))
+(require 'cl-lib)
 
 ;;;###autoload
 (defun youtube-this()
@@ -62,25 +62,37 @@
 		  (418 . (lambda (&rest _) (message "Got 418."))))
    :complete (message "searching...")))
 
-
 (defun youtube-this-tree-assoc (key tree)
-  (when (consp tree)
+  "Build the tree-assoc from KEY TREE for youtube query."
+  (when (consp tree) 
     (cl-destructuring-bind (x . y)  tree
       (if (eql x key) tree
 	(or (youtube-this-tree-assoc key x) (youtube-this-tree-assoc key y))))))
 
-(defun youtube-this-playvideo (videoId)
+(defun youtube-this-playvideo (video-id)
+  "Format the youtube URL via VIDEO-ID."
   (browse-url
-   (concat "http://www.youtube.com/watch?v=" videoId)))
+   (concat "http://www.youtube.com/watch?v=" video-id)))
 
 
-;;handle the json parsing 
+;; @alphapapa
+;; (defun youtube-this-wrapper (*qqJson*)
+;;   "The *QQJSON* RANDOM."
+;;   (let* ((results (cl-loop for x in (cdar *qqJson*)
+;; 			   collect (list (cdr (youtube-this-tree-assoc 'title x))
+;;  					 (cdr (youtube-this-tree-assoc 'videoId x)))))
+;; 	 (source (helm-build-sync-source "youtube-this"
+;; 		   :candidates results
+;; 		   )))
+;;     (helm :sources source)))
+
+
 (defun youtube-this-wrapper (*qqJson*)
-  (defvar *results*)
-  (defvar helm-sources)
+  "Parse the json provided by *QQJSON* and provide search result targets."
+  (let (*results* helm-sources)
   (setq *qqJson* (cdr (car *qqJson*)))
   (cl-loop for x being the elements of *qqJson*
-	   do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'videoId x))) *results*))
+	   do (push (cons (cdr (youtube-this-tree-assoc 'title x)) (cdr (youtube-this-tree-assoc 'video-id x))) *results*))
   (setq helm-sources
 	`((name . "Youtube Search Results")
 	  (candidates . ,(mapcar 'car *results*))
@@ -88,7 +100,7 @@
 		      ;; (message-box "%s" (candidate))
 		      (youtube-this-playvideo (cdr (assoc candidate *results*)))
 		      ))))
-  (helm :sources '(helm-sources)))
+  (helm :sources '(helm-sources))))
 
 (provide 'youtube-this)
 
