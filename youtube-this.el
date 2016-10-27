@@ -39,13 +39,13 @@
 
 
 (require 'cl-lib)
+(require 'helm)
+(require 'request)
+(require 'json)
 
 ;;;###autoload
 (defun youtube-this()
   (interactive)
-  (require 'helm)
-  (require 'request)
-  (require 'json)
   (request
    "https://www.googleapis.com/youtube/v3/search"
    :params `(("part" . "snippet")
