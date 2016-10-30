@@ -2,20 +2,20 @@
 
 #Helm-YouTube
 <p align="center">
-  <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo.gif">
+  <img src="https://github.com/maximus12793/helm-youtube/blob/master/demo.gif">
 </p>
 
 YouTube-this is a simple plugin to query YouTube via emacs and play videos in your browser. 
 
 ## Installation 
-1. M-x package-install: youtube-this
+1. M-x package-install: helm-youtube
 
 2. Obtain new google API key 
     [here](https://console.developers.google.com/ "Google Developer Console")
 
-    ![Screenshot](https://github.com/maximus12793/youtube-this.el/blob/master/api.png)
+    ![Screenshot](https://github.com/maximus12793/helm-youtube/blob/master/api.png)
 
-3. Modify file in /youtube-this.el, Insert key from step 1 here
+3. Modify file in /helm-youtube.el, Insert key from step 1 here
 
 
     ``` el
@@ -25,9 +25,9 @@ YouTube-this is a simple plugin to query YouTube via emacs and play videos in yo
 
  
     ``` el
-    ;;start youtube-this.el
-    (autoload 'youtube-this "youtube-this" nil t)
-    (global-set-key (kbd "C-c y") 'youtube-this)
+    ;;start helm-youtube.el
+    (autoload 'helm-youtube "helm-youtube" nil t)
+    (global-set-key (kbd "C-c y") 'helm-youtube)
 
     ;;set default browser for you will use to play videos/default generic
     (setq browse-url-browser-function 'browse-url-generic)
