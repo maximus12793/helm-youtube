@@ -1,6 +1,6 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
-#YouTube-this
+#Helm-YouTube
 <p align="center">
   <img src="https://github.com/maximus12793/youtube-this.el/blob/master/demo.gif">
 </p>
