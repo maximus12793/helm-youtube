@@ -42,6 +42,14 @@
 (require 'request)
 (require 'json)
 
+(defgroup helm-youtube nil
+  "Helm-youtube settings"
+  :group 'tools)
+
+(defcustom helm-youtube-key "NONE"
+  "Your Google API key";; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
+  :group 'helm-youtube)
+
 ;;;###autoload
 (defun helm-youtube()
   (interactive)
@@ -51,7 +59,7 @@
 	     ("q" . ,(read-string "Search YouTube: "))
 	     ("type" . "video")
 	     ("maxResults" . "20")
-	     ("key" . "ENTER KEY HERE"));; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
+	     ("key" .  ,helm-youtube-key));; <--- GOOGLE API KEY
    :parser 'json-read
    :success (cl-function
 	     (lambda (&key data &allow-other-keys)
@@ -76,18 +84,18 @@
 
 (defun helm-youtube-wrapper (*qqJson*)
   "Parse the json provided by *QQJSON* and provide search result targets."
-  (let (*results* helm-sources)
+  (let (*results* you-source)
     (setq *qqJson* (cdr (car *qqJson*)))
     (cl-loop for x being the elements of *qqJson*
 	     do (push (cons (cdr (helm-youtube-tree-assoc 'title x)) (cdr (helm-youtube-tree-assoc 'video-id x))) *results*))
-    (let ((helm-sources
+    (let ((you-source
 	   `((name . "Youtube Search Results")
 	     (candidates . ,(mapcar 'car *results*))
 	     (action . (lambda (candidate)
 			 ;; (message-box "%s" (candidate))
 			 (helm-youtube-playvideo (cdr (assoc candidate *results*)))
 			 )))))
-      (helm :sources '(helm-sources)))))
+      (helm :sources '(you-source)))))
 
 (provide 'helm-youtube)
 
