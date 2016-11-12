@@ -21,7 +21,7 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
 
 
     ``` el
-    M-x customize-variable
+    M-x customize-variable ;; search 'helm-youtube-key'
     Helm Youtube Key: replace "NONE" with "API KEY" ;; FROM STEP 2
     ```
 
