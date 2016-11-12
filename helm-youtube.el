@@ -46,13 +46,15 @@
   "Helm-youtube settings"
   :group 'tools)
 
-(defcustom helm-youtube-key "NONE"
+(defcustom helm-youtube-key nil
   "Your Google API key";; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
   :group 'helm-youtube)
 
 ;;;###autoload
 (defun helm-youtube()
   (interactive)
+  (unless helm-youtube-key
+    (error "You must set `helm-youtube-key' to use this command"))
   (request
    "https://www.googleapis.com/youtube/v3/search"
    :params `(("part" . "snippet")
