@@ -6,6 +6,7 @@
 </p>
 
 Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in your browser. 
+
 **IMPORTANT:** remeber to set 'helm-youtube-key' variable.
 
 ## Installation 
