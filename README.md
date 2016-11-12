@@ -23,8 +23,8 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     ```
     M-x customize-variable
     Helm Youtube Key: replace "NONE" with "API KEY" ;; FROM STEP 2
-
     ```
+
 4. Set browse-url-generic and add to .emacs
 
  
