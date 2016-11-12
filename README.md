@@ -7,7 +7,7 @@
 
 Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in your browser. 
 
-**IMPORTANT:** remeber to set 'helm-youtube-key' variable.
+**IMPORTANT:** Remeber to set 'helm-youtube-key' variable!
 
 ## Installation 
 1. M-x package-install: helm-youtube
@@ -31,7 +31,7 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     ``` el
     ;;start helm-youtube.el
     (autoload 'helm-youtube "helm-youtube" nil t)
-    (global-set-key (kbd "C-c y") 'helm-youtube)
+    (global-set-key (kbd "C-c y") 'helm-youtube) ;; bind hotkey
 
     ;;set default browser for you will use to play videos/default generic
     (setq browse-url-browser-function 'browse-url-generic)
