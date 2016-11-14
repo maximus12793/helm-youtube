@@ -43,11 +43,11 @@
 (require 'json)
 
 (defgroup helm-youtube nil
-  "Helm-youtube settings"
+  "Helm-youtube settings."
   :group 'tools)
 
 (defcustom helm-youtube-key nil
-  "Your Google API key";; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
+  "Your Google API key.";; INSERT YOUR KEY FROM GOOGLE ACCOUNT!!!
   :group 'helm-youtube)
 
 ;;;###autoload
@@ -89,7 +89,7 @@
   (let (*results* you-source)
     (setq *qqJson* (cdr (car *qqJson*)))
     (cl-loop for x being the elements of *qqJson*
-	     do (push (cons (cdr (helm-youtube-tree-assoc 'title x)) (cdr (helm-youtube-tree-assoc 'video-id x))) *results*))
+	     do (push (cons (cdr (helm-youtube-tree-assoc 'title x)) (cdr (helm-youtube-tree-assoc 'videoId x))) *results*))
     (let ((you-source
 	   `((name . "Youtube Search Results")
 	     (candidates . ,(mapcar 'car *results*))
