@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016 Maximilian Roquemore
 
 ;; Author: Maximilian Roquemore <maximus12793@gmail.com>
-;; Version: 1.0
+;; Version: 1.1
 ;; Package-Requires: ((request "0.2.0") (helm "2.3.1") (cl-lib "0.5"))
 ;; URL: https://github.com/maximus12793/helm-youtube
 ;; Created: 2016-Oct-19 01:58:25 
