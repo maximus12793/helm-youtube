@@ -18,7 +18,9 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     ![Screenshot](https://github.com/maximus12793/helm-youtube/blob/master/api.png)
 
 3. Enable "Youtube Data API" for that key.
+
    3a. click "Youtube Data API"
+   
    3b. click "ENABLE" on the next screen.
    
     ![screenshot2](https://github.com/academikuser/helm-youtube/blob/master/youtube-api.png)
