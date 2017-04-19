@@ -47,10 +47,10 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     ```
     
  5b. (alternative) osX - open with default browser for the os.
+ 
     ```el
       (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program "open")            
-
     ```
  
 6. Enjoy :) 
