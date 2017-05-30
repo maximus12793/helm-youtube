@@ -17,7 +17,15 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
 
     ![Screenshot](https://github.com/maximus12793/helm-youtube/blob/master/api.png)
 
-3. **IMPORTANT:** Set 'helm-youtube-key' variable
+3. Enable "Youtube Data API" for that key.
+
+   3a. click "Youtube Data API"
+   
+   3b. click "ENABLE" on the next screen.
+   
+    ![screenshot2](https://github.com/academikuser/helm-youtube/blob/master/youtube-api.png)
+
+4. **IMPORTANT:** Set 'helm-youtube-key' variable
 
 
     ``` el
@@ -25,7 +33,7 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     Helm Youtube Key: replace "NONE" with "API KEY" ;; FROM STEP 2
     ```
 
-4. Set browse-url-generic and add to .emacs
+5. Set browse-url-generic and add to .emacs
 
  
     ``` el
@@ -37,4 +45,12 @@ Helm-YouTube is a simple plugin to query YouTube via emacs and play videos in yo
     (setq browse-url-browser-function 'browse-url-generic)
     (setq browse-url-generic-program "google-chrome-open-url")
     ```
-5. Enjoy :) 
+    
+ 5b. (alternative) osX - open with default browser for the os.
+ 
+    ```el
+      (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "open")            
+    ```
+ 
+6. Enjoy :) 
