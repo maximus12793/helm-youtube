@@ -6,7 +6,7 @@
 ;; Version: 1.1
 ;; Package-Requires: ((request "0.2.0") (helm "2.3.1") (cl-lib "0.5"))
 ;; URL: https://github.com/maximus12793/helm-youtube
-;; Created: 2016-Oct-19 01:58:25 
+;; Created: 2016-Oct-19 01:58:25
 ;; Keywords: youtube, multimedia
 
 ;;; Commentary:
@@ -73,7 +73,7 @@
 
 (defun helm-youtube-tree-assoc (key tree)
   "Build the tree-assoc from KEY TREE for youtube query."
-  (when (consp tree) 
+  (when (consp tree)
     (cl-destructuring-bind (x . y)  tree
       (if (eql x key) tree
 	(or (helm-youtube-tree-assoc key x) (helm-youtube-tree-assoc key y))))))
@@ -87,7 +87,7 @@
 (defun helm-youtube-wrapper (*qqJson*)
   "Parse the json provided by *QQJSON* and provide search result targets."
   (let (*results* you-source)
-    (setq *qqJson* (cdr (car *qqJson*)))
+    (setq *qqJson* (cdr (assoc 'items *qqJson*)))
     (cl-loop for x being the elements of *qqJson*
 	     do (push (cons (cdr (helm-youtube-tree-assoc 'title x)) (cdr (helm-youtube-tree-assoc 'videoId x))) *results*))
     (let ((you-source
